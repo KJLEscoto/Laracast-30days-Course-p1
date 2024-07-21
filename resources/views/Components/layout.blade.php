@@ -9,14 +9,19 @@
 </head>
 
 <body>
-  <div class="h-screen w-full bg-gray-200">
-    <nav class="h-20 w-full bg-gray-500 text-white flex items-center px-20">
-      <x-nav-link href="/">Home</x-nav-link>
-      <x-nav-link href="/about">About</x-nav-link>
-      <x-nav-link href="/contact">Contact</x-nav-link>
+  <div class="h-screen w-full bg-slate-200">
+    <nav class="h-auto w-full bg-slate-700 text-white flex items-center px-20 py-3 gap-5">
+      <a href="#"><img class="w-16 h-16 shadow-lg rounded-full"
+          src="https://www.hindustantimes.com/ht-img/img/2023/06/05/550x309/Muichiro_scarlet_mark_1685538471462_1685994057756.jfif"
+          alt=""></a>
+      <div class="flex items-center gap-2">
+        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+        <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+        <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+      </div>
     </nav>
     <div class="px-20 py-10 flex flex-col gap-3 h-auto w-full">
-      <div class="text-xl font-bold w-full border-b border-gray-400 pb-1">{{ $heading }}</div>
+      <div class="text-xl font-bold w-full border-b border-slate-400 pb-1">{{ $heading }}</div>
       {{ $slot }}
     </div>
   </div>
