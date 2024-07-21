@@ -1,3 +1,4 @@
 <x-layout>
-  <h1 class="text-4xl">About Page</h1>
+  <x-slot:heading>About</x-slot:heading>
+  <h1 class="text-lg">About Page Content</h1>
 </x-layout>
