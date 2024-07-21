@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laracast - 30 days Course</title>
+  <title>About | Laracast - 30 days Course</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <h1 class="text-4xl">Home</h1>
+  <h1 class="text-4xl">About page</h1>
 </body>
 
 </html>
