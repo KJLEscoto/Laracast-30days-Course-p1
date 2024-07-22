@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
 
 Route::get('/', function () {
     return view('home', [
@@ -11,41 +11,11 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about', [
-        'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'programmer',
-                'description' => 'sdfsdfsd',
-                'salary' => '$12,000'
-            ],
-            [
-                'id' => 2,
-                'title' => 'teacher',
-                'description' => 'sdfsdfsd',
-                'salary' => '$10,000'
-            ],
-        ]
-    ]);
+    return view('about', ['jobs' => Job::all()]);
 });
 
 Route::get('/about/{id}', function ($id) {
-    $jobs = [
-            [
-                'id' => 1,
-                'title' => 'programmer',
-                'description' => 'sdfsdfsd',
-                'salary' => '$12,000'
-            ],
-            [
-                'id' => 2,
-                'title' => 'teacher',
-                'description' => 'sdfsdfsd',
-                'salary' => '$10,000'
-            ],
-        ];
-
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
+    $job = Job::find($id);
     
     return view('job-details', ['job' => $job]);
 });
