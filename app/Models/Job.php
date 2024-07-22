@@ -11,13 +11,15 @@ class Job {
               'id' => 1,
               'title' => 'programmer',
               'description' => 'This is programmer.',
-              'salary' => '$12,000'
+              'salary' => '$12,000',
+              'image' => 'https://www.shutterstock.com/image-photo/diverse-office-programmer-working-on-600nw-2079730714.jpg'
           ],
           [
               'id' => 2,
-              'title' => 'teacher',
-              'description' => 'This is teacher.',
-              'salary' => '$10,000'
+              'title' => 'designer',
+              'description' => 'This is designer.',
+              'salary' => '$10,000',
+              'image' => 'https://www.training.com.au/wp-content/uploads/Web-designer-1.jpeg'
           ],
       ];
   }

@@ -1,8 +1,8 @@
 <x-layout>
-  <x-slot:heading>About</x-slot:heading>
-  <!-- <h1 class="text-lg">About Page Content</h1> -->
-  <strong class="capitalize">{{ $job['title'] }}</strong>
-  <p>Description: {{ $job['description'] }}.</p>
+  <x-slot:heading>
+    <h1 class="capitalize">{{ $job['title'] }}</h1>
+  </x-slot:heading>
+  <p>Description: {{ $job['description'] }}</p>
   <p>
     This job pays <strong>{{ $job['salary'] }}</strong> per year.
   </p>
