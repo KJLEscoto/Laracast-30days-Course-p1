@@ -5,16 +5,19 @@ use App\Models\Job;
 
 Route::get('/', function () {
     return view('home', [
-        'greeting' => 'hello',
-        'name' => 'kent'
+        'greeting' => 'Hello there! Looking for your next career opportunity? Find a job that fits your skills and interests on our website. Explore a wide range of job listings across various industries, apply online, and take the next step towards your dream job today!',
     ]);
+
+    // $jobs = Job::all();
+
+    // dd($jobs);
 });
 
-Route::get('/about', function () {
-    return view('about', ['jobs' => Job::all()]);
+Route::get('/job-listings', function () {
+    return view('job-listings', ['jobs' => Job::all()]);
 });
 
-Route::get('/about/{id}', function ($id) {
+Route::get('/job-listings/{id}', function ($id) {
     $job = Job::find($id);
     
     return view('job-details', ['job' => $job]);
