@@ -1,8 +1,8 @@
 <x-layout>
   <x-slot:heading>Job Listings</x-slot:heading>
-  <ul>
-    <li class="flex gap-3">
-      @foreach ($jobs as $job)
+  <ul class="flex flex-wrap gap-3 w-full justify-center">
+    @foreach ($jobs as $job)
+    <li class="sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
       <a href="/job-listings/{{ $job['id'] }}">
         <div class="relative p-5 shadow hover:opacity-90 bg-slate-500 rounded">
           <div
@@ -13,11 +13,7 @@
           </div>
         </div>
       </a>
-      @endforeach
     </li>
+    @endforeach
   </ul>
 </x-layout>
-
-// job image
-// programmer - https://www.shutterstock.com/image-photo/diverse-office-programmer-working-on-600nw-2079730714.jpg
-// designer - https://www.training.com.au/wp-content/uploads/Web-designer-1.jpeg
