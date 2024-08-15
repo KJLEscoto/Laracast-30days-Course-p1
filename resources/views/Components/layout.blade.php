@@ -8,10 +8,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="https://www.industryconnect.org/wp-content/uploads/2016/10/software-developer-jobs.jpg"
     type="image/x-icon">
+  <style>
+  body {
+    background-color: #e2e8f0;
+  }
+  </style>
 </head>
 
 <body>
-  <div class="h-screen w-full bg-slate-200">
+  <div class="h-full w-full bg-slate-200">
     <nav class="h-auto w-full bg-slate-700 text-white flex items-center px-20 py-3 gap-5">
       <a href="#">
         <img class="w-16 h-16 shadow-lg rounded-full"

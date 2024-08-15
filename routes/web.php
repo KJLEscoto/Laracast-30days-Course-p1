@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home', [
@@ -14,13 +14,20 @@ Route::get('/', function () {
 });
 
 Route::get('/job-listings', function () {
-    return view('job-listings', ['jobs' => Job::all()]);
+    $jobs = Job::with('employer')->get();
+    // $jobs = Job::all();
+
+    return view('job-listings', [
+        'jobs' => $jobs,
+    ]);
 });
 
 Route::get('/job-listings/{id}', function ($id) {
     $job = Job::find($id);
-    
-    return view('job-details', ['job' => $job]);
+
+    return view('job-details', [
+        'job' => $job,
+    ]);
 });
 
 #day2 - assignment
