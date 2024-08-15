@@ -1,5 +1,6 @@
 <x-layout>
   <x-slot:heading>Job Listings</x-slot:heading>
+
   <ul class="grid sm:grid-cols-2 grid-cols-1 gap-2">
     @foreach ($jobs as $job)
     <a href="/job-listings/{{ $job['id'] }}">
@@ -15,4 +16,8 @@
     </a>
     @endforeach
   </ul>
+
+  <div>
+    {{ $jobs->links() }}
+  </div>
 </x-layout>
