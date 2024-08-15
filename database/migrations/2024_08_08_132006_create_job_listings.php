@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(Employer::class);
             $table->string('title');
             $table->double('salary');
-            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

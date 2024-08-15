@@ -1,5 +1,12 @@
 <x-layout>
-  <x-slot:heading>Job Listings</x-slot:heading>
+  <x-slot:heading>
+    <div class="flex justify-between items-center mb-3">
+      <h1>Job Listings</h1>
+      <div class="flex gap-2">
+        {{ $jobs->links() }}
+      </div>
+    </div>
+  </x-slot:heading>
 
   <ul class="grid sm:grid-cols-2 grid-cols-1 gap-2">
     @foreach ($jobs as $job)
@@ -18,6 +25,6 @@
   </ul>
 
   <div>
-    {{ $jobs->links() }}
+
   </div>
 </x-layout>
