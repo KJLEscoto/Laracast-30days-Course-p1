@@ -1,7 +1,12 @@
 <x-layout>
   <x-slot:heading>
     <div class="flex justify-between items-center mb-3">
-      <h1>Job Listings</h1>
+      <div class="flex items-center gap-5">
+        <h1>Job Listings</h1>
+        <a href="/job-listings/create"
+          class="py-1 px-3 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">+
+          Create New</a>
+      </div>
       <div class="flex gap-2">
         {{ $jobs->links() }}
       </div>

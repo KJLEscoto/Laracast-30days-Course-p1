@@ -14,20 +14,34 @@ Route::get('/', function () {
 });
 
 Route::get('/job-listings', function () {
-    $jobs = Job::with('employer')->simplePaginate(10);
+    $jobs = Job::with('employer')->latest()->simplePaginate(10);
     // $jobs = Job::all();
 
-    return view('job-listings', [
+    return view('job-listings.index', [
         'jobs' => $jobs,
     ]);
+});
+
+Route::get('/job-listings/create', function () {
+    return view('job-listings.create');
 });
 
 Route::get('/job-listings/{id}', function ($id) {
     $job = Job::find($id);
 
-    return view('job-details', [
+    return view('job-listings.show', [
         'job' => $job,
     ]);
+});
+
+Route::post('/job-listings', function () {
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1,
+    ]);
+
+    return redirect('/job-listings');
 });
 
 #day2 - assignment
