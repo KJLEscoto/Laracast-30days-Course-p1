@@ -2,7 +2,10 @@
   <x-slot:heading>
     <div class="flex justify-between items-center mb-3">
       <div class="flex items-center gap-5">
-        <h1>Job Listings</h1>
+        <div class="relative">
+          <h1>Job Listings</h1>
+          <h5 class="absolute -top-3 -right-3 text-sm">({{ $count }})</h5>
+        </div>
         <a href="/job-listings/create"
           class="py-1 px-3 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">+
           Create New</a>
@@ -13,7 +16,7 @@
     </div>
   </x-slot:heading>
 
-  <ul class="grid sm:grid-cols-2 grid-cols-1 gap-2">
+  <ul class="grid sm:grid-cols-2 grid-cols-1 gap-4">
     @foreach ($jobs as $job)
     <a href="/job-listings/{{ $job['id'] }}">
       <li class="border border-slate-300 p-5 rounded hover:bg-slate-300 flex items-center justify-between">

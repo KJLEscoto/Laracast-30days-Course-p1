@@ -7,12 +7,27 @@
     @csrf
     <section class="flex flex-col gap-2">
       <label class="font-medium text-base" for="title">Title</label>
-      <input name="title" id="title" type="text" class="w-1/3 p-2 rounded" placeholder="Programmer">
+      <input name="title" id="title" type="text" class="w-1/3 p-2 rounded" placeholder="Programmer" required>
+      @error('title')
+      <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
+      @enderror
     </section>
+
     <section class="flex flex-col gap-2">
       <label class="font-medium text-base" for="salary">Salary</label>
       <input name="salary" id="salary" type="text" class="w-1/3 p-2 rounded" placeholder="00000">
+      @error('salary')
+      <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
+      @enderror
     </section>
+
+    <!-- @if ($errors->any())
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }} </li>
+      @endforeach
+    </ul>
+    @endif -->
 
     <div class="flex items-center gap-2">
       <a href="/job-listings"

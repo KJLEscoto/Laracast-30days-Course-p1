@@ -17,8 +17,11 @@ Route::get('/job-listings', function () {
     $jobs = Job::with('employer')->latest()->simplePaginate(10);
     // $jobs = Job::all();
 
+    $count = Job::all()->count();
+
     return view('job-listings.index', [
         'jobs' => $jobs,
+        'count' => $count,
     ]);
 });
 
@@ -35,6 +38,11 @@ Route::get('/job-listings/{id}', function ($id) {
 });
 
 Route::post('/job-listings', function () {
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required'],
+    ]);
+
     Job::create([
         'title' => request('title'),
         'salary' => request('salary'),
