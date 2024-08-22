@@ -1,11 +1,11 @@
 <x-layout>
     <x-slot:heading>Log In</x-slot:heading>
-    <form method="POST" action="/register" class="flex flex-col w-1/3 gap-5 mt-3">
+    <form method="POST" action="/login" class="flex flex-col w-1/3 gap-5 mt-3">
         @csrf
 
         <x-form-field>
             <x-form-label for="email">Email</x-form-label>
-            <x-form-input name="email" id="email" type="email" placeholder="example@gmail.com" />
+            <x-form-input :value="old('email')" name="email" id="email" type="email" placeholder="example@gmail.com" />
             <x-form-error name="email" />
         </x-form-field>
 

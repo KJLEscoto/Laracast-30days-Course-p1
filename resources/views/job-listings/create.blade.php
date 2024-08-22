@@ -3,7 +3,7 @@
 
     <p class="text-gray-700">We just need a handful of details.</p>
 
-    <form method="POST" action="/job-listings/{{ $job->id }} " class="flex w-1/3 flex-col gap-5 mt-3 pb-10">
+    <form method="POST" action="/job-listings" class="flex w-1/3 flex-col gap-5 mt-3 pb-10">
         @csrf
 
         <x-form-field>
