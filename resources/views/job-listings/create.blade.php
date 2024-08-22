@@ -1,27 +1,24 @@
 <x-layout>
-  <x-slot:heading>Create Job Listings</x-slot:heading>
+    <x-slot:heading>Create Job Listings</x-slot:heading>
 
-  <p class="text-gray-700">We just need a handful of details.</p>
+    <p class="text-gray-700">We just need a handful of details.</p>
 
-  <form method="POST" action="/job-listings" class="flex flex-col gap-5 mt-3 border-b border-slate-400 pb-10">
-    @csrf
-    <section class="flex flex-col gap-2">
-      <label class="font-medium text-base" for="title">Title</label>
-      <input name="title" id="title" type="text" class="w-1/3 p-2 rounded" placeholder="Programmer" required>
-      @error('title')
-      <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
-      @enderror
-    </section>
+    <form method="POST" action="/job-listings/{{ $job->id }} " class="flex w-1/3 flex-col gap-5 mt-3 pb-10">
+        @csrf
 
-    <section class="flex flex-col gap-2">
-      <label class="font-medium text-base" for="salary">Salary</label>
-      <input name="salary" id="salary" type="text" class="w-1/3 p-2 rounded" placeholder="00000">
-      @error('salary')
-      <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
-      @enderror
-    </section>
+        <x-form-field>
+            <x-form-label for="title">Title</x-form-label>
+            <x-form-input name="title" id="title" placeholder="Programmer" />
+            <x-form-error name="title" />
+        </x-form-field>
 
-    <!-- @if ($errors->any())
+        <x-form-field>
+            <x-form-label for="salary">Salary</x-form-label>
+            <x-form-input name="salary" id="salary" placeholder="00000" />
+            <x-form-error name="salary" />
+        </x-form-field>
+
+        <!-- @if ($errors->any())
     <ul>
       @foreach ($errors->all() as $error)
       <li>{{ $error }} </li>
@@ -29,14 +26,15 @@
     </ul>
     @endif -->
 
-    <div class="flex items-center gap-2">
-      <a href="/job-listings"
-        class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">
-        Cancel
-      </a>
-      <button type="submit" class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">
-        Save
-      </button>
-    </div>
-  </form>
+        <div class="flex items-center gap-2">
+            <a href="/job-listings"
+                class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">
+                Cancel
+            </a>
+            <button type="submit"
+                class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">
+                Save
+            </button>
+        </div>
+    </form>
 </x-layout>

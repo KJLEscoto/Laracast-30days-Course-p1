@@ -1,0 +1,1 @@
+<input type="text" {{ $attributes->merge([ 'class' => 'p-2 rounded']) }}>
