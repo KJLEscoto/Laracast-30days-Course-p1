@@ -3,7 +3,19 @@
 use App\Http\Controllers\JobListingController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+// use App\Mail\JobPosted;
+// use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+
+// Route::get('test', function () {
+//     // return new JobPosted();
+
+//     Mail::to('kentescoto24@gmail.com')->send(
+//         new JobPosted()
+//     );
+
+//     return 'Done';
+// });
 
 // home page
 Route::view('/', 'home',
