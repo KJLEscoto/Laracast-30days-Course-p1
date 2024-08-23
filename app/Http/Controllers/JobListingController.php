@@ -49,6 +49,14 @@ class JobListingController extends Controller
 
     public function edit(Job $job)
     {
+
+        // if (Auth::guest()) {
+        //     return redirect('/login');
+        // }
+
+        // can do allows and denies method handle if
+        // Gate::authorize('edit-job', $job); // 403
+
         return view('job-listings.edit', [
             'job' => $job,
         ]);

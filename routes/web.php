@@ -22,17 +22,21 @@ Route::controller(JobListingController::class)->group(function () {
     Route::get('/job-listings', 'index');
     Route::get('/job-listings/create', 'create');
     Route::get('/job-listings/{job}', 'show');
-    Route::post('/job-listings', 'store');
-    Route::get('/job-listings/{job}/edit', 'edit');
-    Route::patch('/job-listings/{job}', 'update');
-    Route::delete('/job-listings/{job}', 'destroy');
+    Route::post('/job-listings', 'store')->middleware('auth');
+
+    Route::get('/job-listings/{job}/edit', 'edit')
+        ->middleware('auth')
+        ->can('edit', 'job'); // policy
+
+    Route::patch('/job-listings/{job}', 'update')->middleware('auth');
+    Route::delete('/job-listings/{job}', 'destroy')->middleware('auth');
 });
 
 // Auth
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/login', [SessionController::class, 'create']);
+Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
 
