@@ -34,7 +34,7 @@
             @endforeach
         </ul>
 
-        <!-- success notification -->
+        <!-- success alert -->
         @if(session('success'))
         <div class="flex justify-center">
             <div id="success" class="absolute top-24">
@@ -43,9 +43,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    @endif
-
+        @endif
     </div>
 </x-layout>
 
