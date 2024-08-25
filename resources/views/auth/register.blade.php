@@ -36,13 +36,8 @@
         </x-form-field>
 
         <div class="flex items-center gap-2">
-            <a href="/" class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">
-                Cancel
-            </a>
-            <button type="submit"
-                class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">
-                Register
-            </button>
+            <x-secondary-button href="/">Cancel</x-secondary-button>
+            <x-primary-button class="bg-slate-500 hover:bg-slate-500/80 text-gray-200">Register</x-primary-button>
         </div>
     </form>
 </x-layout>

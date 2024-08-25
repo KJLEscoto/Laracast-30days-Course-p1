@@ -3,22 +3,26 @@
 use App\Http\Controllers\JobListingController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
-// use App\Mail\JobPosted;
-// use Illuminate\Support\Facades\Mail;
+use App\Jobs\TranslateJob;
+use App\Mail\JobPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
 
-// Route::get('test', function () {
-//     // return new JobPosted();
+Route::get('test', function () {
+    // return new JobPosted();
 
-//     Mail::to('kentescoto24@gmail.com')->send(
-//         new JobPosted()
-//     );
+    $job = Job::first();
 
-//     return 'Done';
-// });
+    TranslateJob::dispatch($job);
+
+    return 'Done';
+});
 
 // home page
-Route::view('/', 'home',
+Route::view(
+    '/',
+    'home',
     [
         'greeting' => 'Hello there! Looking for your next career opportunity? Find a job that fits your skills and interests on our website. Explore a wide range of job listings across various industries, apply online, and take the next step towards your dream job today!',
     ]

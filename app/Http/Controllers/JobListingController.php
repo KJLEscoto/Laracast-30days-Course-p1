@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\JobPosted;
 use App\Models\Job;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class JobListingController extends Controller
@@ -13,7 +14,7 @@ class JobListingController extends Controller
         $jobs = Job::with('employer')->latest()->simplePaginate(10);
         // $jobs = Job::all();
 
-        $count = Job::all()->count();
+        $count = Job::all()->count(); // sum of all jobs
 
         return view('job-listings.index', [
             'jobs' => $jobs,
@@ -43,14 +44,14 @@ class JobListingController extends Controller
         $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
-            'employer_id' => 1,
+            'employer_id' => 11,
         ]);
 
-        Mail::to($job->employer->user)->send(
+        Mail::to($job->employer->user)->queue(
             new JobPosted($job)
         );
 
-        return redirect('/job-listings');
+        return redirect('/job-listings')->with('success', 'Job has been posted successfully!');
     }
 
     public function edit(Job $job)

@@ -6,21 +6,15 @@
         @method('PATCH')
 
         <section class="flex flex-col gap-2">
-            <label class="font-medium text-base" for="title">Title</label>
-            <input value="{{ $job->title }}" name="title" id="title" type="text" class="p-2 rounded"
-                placeholder="Programmer" required>
-            @error('title')
-            <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
-            @enderror
+            <x-form-label for="title">Title</x-form-label>
+            <x-form-input value="{{ $job->title }}" name="title" id="title" placeholder="Programmer" />
+            <x-form-error name="title" />
         </section>
 
         <section class="flex flex-col gap-2">
-            <label class="font-medium text-base" for="salary">Salary</label>
-            <input value="{{ $job->salary }}" name="salary" id="salary" type="text" class="p-2 rounded"
-                placeholder="00000">
-            @error('salary')
-            <p class="text-sm text-red-500 font-medium italic -mt-1">{{ $message }}</p>
-            @enderror
+            <x-form-label for="salary">Salary per Month</x-form-label>
+            <x-form-input value="{{ $job->salary }}" name="salary" id="salary" placeholder="0" />
+            <x-form-error name="salary" />
         </section>
 
         <!-- @if ($errors->any())
@@ -32,20 +26,11 @@
     @endif -->
 
         <div class="flex justify-between items-center">
-
-            <button form="delete-form"
-                class="py-2 px-5 text-sm bg-red-500 hover:bg-red-600 rounded text-gray-200 font-medium">
-                Delete
-            </button>
+            <x-primary-button form="delete-form" class="bg-red-500 hover:bg-red-500/80 text-gray-200">Delete
+            </x-primary-button>
             <div class="flex items-center gap-2">
-                <a href="/job-listings/{{ $job->id }}"
-                    class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">
-                    Cancel
-                </a>
-                <button type="submit"
-                    class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">
-                    Update
-                </button>
+                <x-secondary-button href="/job-listings/{{ $job->id }}">Cancel</x-secondary-button>
+                <x-primary-button class="bg-slate-500 hover:bg-slate-500/80 text-gray-200">Update</x-primary-button>
             </div>
         </div>
     </form>

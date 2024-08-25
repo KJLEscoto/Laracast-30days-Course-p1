@@ -13,28 +13,22 @@
         </x-form-field>
 
         <x-form-field>
-            <x-form-label for="salary">Salary</x-form-label>
-            <x-form-input name="salary" id="salary" placeholder="00000" />
+            <x-form-label for="salary">Salary per Month</x-form-label>
+            <x-form-input name="salary" id="salary" placeholder="0" />
             <x-form-error name="salary" />
         </x-form-field>
 
         <!-- @if ($errors->any())
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }} </li>
-      @endforeach
-    </ul>
-    @endif -->
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }} </li>
+            @endforeach
+        </ul>
+        @endif -->
 
         <div class="flex items-center gap-2">
-            <a href="/job-listings"
-                class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">
-                Cancel
-            </a>
-            <button type="submit"
-                class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">
-                Save
-            </button>
+            <x-secondary-button href="/job-listings">Cancel</x-secondary-button>
+            <x-primary-button class="bg-slate-500 hover:bg-slate-500/80 text-gray-200">Save</x-primary-button>
         </div>
     </form>
 </x-layout>

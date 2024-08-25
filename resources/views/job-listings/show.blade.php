@@ -4,16 +4,15 @@
         <div class="flex justify-between items-center">
             <div class="flex gap-10 items-center">
                 <div class="flex">
-                    <a href="/job-listings"
-                        class="py-2 px-5 text-sm bg-slate-300 hover:bg-slate-400 rounded text-gray-700 font-medium">Back</a>
+                    <x-secondary-button href="/job-listings">Back</x-secondary-button>
                 </div>
                 <h1 class="">{{ $job->title }}</h1>
             </div>
             @can('edit', $job)
-            <div class="">
-                <a href="/job-listings/{{ $job->id }}/edit"
-                    class="py-2 px-5 text-sm bg-slate-500 hover:bg-slate-600 rounded text-gray-200 font-medium">Edit
-                    Job</a>
+            <div>
+                <x-secondary-button href="/job-listings/{{ $job->id }}/edit"
+                    class="bg-slate-500 hover:bg-slate-500/80 text-slate-100">Edit Job
+                </x-secondary-button>
             </div>
             @endcan
         </div>
